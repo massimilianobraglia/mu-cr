@@ -16,6 +16,12 @@
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
         </testsuite>
+        <testsuite name="Functional Test Suite">
+            <directory>tests/AppBundle/Functional</directory>
+        </testsuite>
+        <testsuite name="Unit Test Suite">
+            <directory>tests/AppBundle/Unit</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
