@@ -1,0 +1,21 @@
+{
+    "name": "massimilianobraglia/mu-cr",
+    "description": "A simple CRM for Musicians and Artists",
+    "type": "project",
+    "require": {
+        "symfony/symfony": "^3.1",
+        "fazland/notifire": "^0.3.0",
+        "fazland/notifire-bundle": "^0.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Massimiliano Braglia",
+            "email": "massimiliano.braglia@fazland.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
