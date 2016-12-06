@@ -4,7 +4,7 @@
     "authors": [
         {
             "name": "Massimiliano Braglia",
-            "email": "massimiliano.braglia@fazland.com"
+            "email": "massimiliano.braglia@gmail.com"
         }
     ],
     "description": "A simple CRM for Musicians and Artists",
@@ -24,9 +24,10 @@
         }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",
         "fazland/notifire": "^0.3.0",
         "fazland/notifire-bundle": "^0.3.0",

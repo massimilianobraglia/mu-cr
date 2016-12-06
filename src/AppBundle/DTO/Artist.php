@@ -2,26 +2,36 @@
 
 namespace MuCr\AppBundle\DTO;
 
+use Doctrine\ORM\Mapping as ORM;
 use MuCr\AppBundle\Entity\Artist as EntityArtist;
 use MuCr\AppBundle\Entity\EntityInterface;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@gmail.com>
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="Artist")
  */
 class Artist extends AbstractDTO
 {
     /**
      * @var string
+     *
+     * @ORM\Column(type="string", nullable="false")
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(type="string", nullable="true")
      */
     private $country;
 
     /**
      * @var int
+     *
+     * @ORM\Column(type="int", nullable="true")
      */
     private $creationYear;
 
@@ -72,7 +82,7 @@ class Artist extends AbstractDTO
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCountry(): ?string
     {
@@ -92,7 +102,7 @@ class Artist extends AbstractDTO
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getCreationYear(): ?int
     {

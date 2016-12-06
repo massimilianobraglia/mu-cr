@@ -2,6 +2,7 @@
 
 namespace MuCr\AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use MuCr\AppBundle\DTO\DTOInterface;
 use Ramsey\Uuid\UuidInterface;
 
@@ -17,16 +18,23 @@ interface EntityInterface
 
     /**
      * @return UuidInterface
+     *
+     * @ORM\Id()
+     * @ORM\Column(type="string", nullable="false")
      */
     public function getId(): UuidInterface;
 
     /**
      * @return \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable="false")
      */
     public function getCreatedAt(): \DateTime;
 
     /**
      * @return \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable="false")
      */
     public function getUpdatedAt(): \DateTime;
 

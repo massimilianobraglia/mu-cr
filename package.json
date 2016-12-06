@@ -1,0 +1,14 @@
+{
+  "name": "mu-cr",
+  "author": "Massimiliano Braglia <massimiliano.braglia@gmail.com>",
+  "version": "0.1.0",
+  "description": "A simple CRM for Musicians and Artists",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

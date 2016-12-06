@@ -103,9 +103,9 @@ class Artist extends AbstractEntity
     }
 
     /**
-     * @return Label
+     * @return Label|null
      */
-    public function getLabel(): Label
+    public function getLabel(): ?Label
     {
         return $this->label;
     }
