@@ -39,7 +39,7 @@ interface EntityInterface
     public function getUpdatedAt(): \DateTime;
 
     /**
-     * @return $this
+     * @return EntityInterface
      */
     public function updateTimestamp();
 

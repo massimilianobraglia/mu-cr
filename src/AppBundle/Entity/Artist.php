@@ -2,33 +2,43 @@
 
 namespace MuCr\AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use MuCr\AppBundle\DTO\DTOInterface;
 use MuCr\AppBundle\DTO\Artist as DTOArtist;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@gmail.com>
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="Artist")
  */
 class Artist extends AbstractEntity
 {
     /**
      * @var string
+     *
+     * @ORM\Column(type="string", nullable="false")
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(type="string", nullable="true")
      */
     private $country;
 
     /**
      * @var int
+     *
+     * @ORM\Column(type="int", nullable="true")
      */
     private $creationYear;
 
     /**
-     * @var Label
+     * @var RecordLabel
      */
-    private $label;
+    private $recordLabel;
 
     /**
      * @return bool
@@ -103,21 +113,21 @@ class Artist extends AbstractEntity
     }
 
     /**
-     * @return Label|null
+     * @return RecordLabel|null
      */
-    public function getLabel(): ?Label
+    public function getRecordLabel(): ?RecordLabel
     {
-        return $this->label;
+        return $this->recordLabel;
     }
 
     /**
-     * @param Label|null $label
+     * @param RecordLabel|null $recordLabel
      *
      * @return Artist
      */
-    public function setLabel(?Label $label = null): Artist
+    public function setRecordLabel(?RecordLabel $recordLabel = null): Artist
     {
-        $this->label = $label;
+        $this->recordLabel = $recordLabel;
 
         return $this;
     }
@@ -141,6 +151,7 @@ class Artist extends AbstractEntity
             ->setName($dto->getName())
             ->setCountry($dto->getCountry())
             ->setCreationYear($dto->getCreationYear())
+            ->setRecordLabel(RecordLabel::createFromDTO($dto->getRecordLabel()))
         ;
     }
 }

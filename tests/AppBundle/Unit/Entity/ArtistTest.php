@@ -3,6 +3,7 @@
 namespace MuCr\Tests\Unit\AppBundle\Entity;
 
 use MuCr\AppBundle\DTO\Artist as DTOArtist;
+use MuCr\AppBundle\DTO\RecordLabel as DTORecordLabel;
 use MuCr\AppBundle\Entity\Artist;
 use MuCr\AppBundle\Entity\EntityInterface;
 
@@ -66,11 +67,15 @@ class ArtistTest extends \PHPUnit_Framework_TestCase
         $artistName = "Blind Guardian";
         $artistCountry = "Germania";
         $artistCreationYear = 1986;
+        $artistDTORecordLabel = DTORecordLabel::create()
+            ->setName('Nuclear Blast')
+        ;
 
         $dtoArtist = DTOArtist::create()
             ->setName($artistName)
             ->setCountry($artistCountry)
             ->setCreationYear($artistCreationYear)
+            ->setRecordLabel($artistDTORecordLabel)
         ;
 
         $artist = Artist::createFromDTO($dtoArtist);
@@ -79,6 +84,7 @@ class ArtistTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($artistName, $artist->getName());
         $this->assertEquals($artistCountry, $artist->getCountry());
         $this->assertEquals($artistCreationYear, $artist->getCreationYear());
+        $this->assertEquals($artistDTORecordLabel->getName(), $artist->getRecordLabel()->getName());
         $this->assertTrue($artist->isValid());
     }
 }

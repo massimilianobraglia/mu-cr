@@ -2,52 +2,33 @@
 
 namespace MuCr\AppBundle\DTO;
 
-use Doctrine\ORM\Mapping as ORM;
 use MuCr\AppBundle\Entity\Artist as EntityArtist;
 use MuCr\AppBundle\Entity\EntityInterface;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@gmail.com>
- *
- * @ORM\Entity
- * @ORM\Table(name="Artist")
  */
 class Artist extends AbstractDTO
 {
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable="false")
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable="true")
      */
     private $country;
 
     /**
      * @var int
-     *
-     * @ORM\Column(type="int", nullable="true")
      */
     private $creationYear;
 
     /**
-     * @param EntityArtist|EntityInterface $entity
-     *
-     * @return DTOInterface
+     * @var RecordLabel
      */
-    public static function createFromEntity(EntityInterface $entity): DTOInterface
-    {
-        return static::create()
-            ->setName($entity->getName())
-            ->setCountry($entity->getCountry())
-            ->setCreationYear($entity->getCreationYear())
-        ;
-    }
+    private $recordLabel;
 
     /**
      * {@inheritdoc}
@@ -119,5 +100,46 @@ class Artist extends AbstractDTO
         $this->creationYear = $creationYear;
 
         return $this;
+    }
+
+    /**
+     * @return RecordLabel|null
+     */
+    public function getRecordLabel(): ?RecordLabel
+    {
+        return $this->recordLabel;
+    }
+
+    /**
+     * @param RecordLabel|null $recordLabel
+     *
+     * @return Artist
+     */
+    public function setRecordLabel(?RecordLabel $recordLabel = null): Artist
+    {
+        $this->recordLabel = $recordLabel;
+
+        return $this;
+    }
+
+    /**
+     * @param EntityArtist|EntityInterface $entity
+     *
+     * @return DTOInterface
+     */
+    public static function createFromEntity(EntityInterface $entity): DTOInterface
+    {
+        /** @var Artist|EntityInterface $dto */
+        $dto = static::create()
+            ->setName($entity->getName())
+            ->setCountry($entity->getCountry())
+            ->setCreationYear($entity->getCreationYear())
+        ;
+
+        if (null !== ($recordLabel = $entity->getRecordLabel())) {
+            $dto->setRecordLabel($recordLabel);
+        }
+
+        return $dto;
     }
 }
