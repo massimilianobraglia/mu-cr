@@ -15,3 +15,6 @@
 /node_modules/
 /vendor/
 /web/bundles/
+app/DoctrineMigrations/
+var/cache/
+bower_components/

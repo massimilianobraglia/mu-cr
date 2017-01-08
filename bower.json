@@ -1,0 +1,21 @@
+{
+  "name": "mu-cr",
+  "description": "A simple CRM for Musicians and Artists",
+  "main": "gulpfile.js",
+  "authors": [
+    "Massimiliano Braglia <massimiliano.braglia@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/massimilianobraglia/mu-cr",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gentelella": "^1.3.0"
+  }
+}
