@@ -12,19 +12,19 @@ use MuCr\AppBundle\Entity\EntityInterface;
  */
 class ArtistTest extends \PHPUnit_Framework_TestCase
 {
-    public function testEntityShouldImplementEntityInterface()
+    public function testEntityShouldImplementEntityInterface(): void
     {
         $artist = new Artist();
         $this->assertInstanceOf(EntityInterface::class, $artist);
     }
 
-    public function testArtistIsNotValidWithoutName()
+    public function testArtistIsNotValidWithoutName(): void
     {
         $artist = new Artist();
         $this->assertFalse($artist->isValid());
     }
 
-    public function testArtistIsValidWithName()
+    public function testArtistIsValidWithName(): void
     {
         $artist = new Artist();
 
@@ -33,14 +33,14 @@ class ArtistTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($artist->isValid());
     }
 
-    public function testCreateShouldReturnAnInstanceOfArtist()
+    public function testCreateShouldReturnAnInstanceOfArtist(): void
     {
         $artist = Artist::create();
 
         $this->assertInstanceOf(Artist::class, $artist);
     }
 
-    public function testCreateDTOShouldReturnItsDTOVersion()
+    public function testCreateDTOShouldReturnItsDTOVersion(): void
     {
         $artistName = "Crollo Verticale";
         $artistCountry = "Italia";
@@ -62,7 +62,7 @@ class ArtistTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($dtoArtist->isValid());
     }
 
-    public function testCreateFromDTOShouldReturnItsEntityVersion()
+    public function testCreateFromDTOShouldReturnItsEntityVersion(): void
     {
         $artistName = "Blind Guardian";
         $artistCountry = "Germania";

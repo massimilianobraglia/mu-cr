@@ -31,7 +31,7 @@ class Artist extends AbstractDTO
     private $recordLabel;
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function isValid(): bool
     {

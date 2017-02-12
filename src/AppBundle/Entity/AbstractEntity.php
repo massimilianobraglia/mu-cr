@@ -31,10 +31,12 @@ abstract class AbstractEntity implements EntityInterface
     public function __construct()
     {
         $this->id = Uuid::uuid4();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = $this->createdAt;
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public static function create(): EntityInterface
     {
@@ -42,7 +44,7 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getId(): UuidInterface
     {
@@ -50,7 +52,7 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getCreatedAt(): \DateTime
     {
@@ -58,7 +60,7 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getUpdatedAt(): \DateTime
     {
@@ -66,7 +68,7 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function updateTimestamp()
     {

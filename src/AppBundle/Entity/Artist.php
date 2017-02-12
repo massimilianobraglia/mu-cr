@@ -125,7 +125,7 @@ class Artist extends AbstractEntity
      *
      * @return Artist
      */
-    public function setRecordLabel(?RecordLabel $recordLabel = null): Artist
+    public function setRecordLabel(?RecordLabel $recordLabel = null): Self
     {
         $this->recordLabel = $recordLabel;
 

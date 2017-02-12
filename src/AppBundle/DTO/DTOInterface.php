@@ -14,7 +14,7 @@ interface DTOInterface
      *
      * @return DTOInterface
      */
-    public static function createFromEntity(EntityInterface $entity): DTOInterface;
+    public static function createFromEntity(EntityInterface $entity): self;
 
     /**
      * @return bool

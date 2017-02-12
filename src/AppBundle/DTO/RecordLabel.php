@@ -17,7 +17,7 @@ class RecordLabel extends AbstractDTO
     private $name;
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function isValid(): bool
     {
@@ -41,7 +41,7 @@ class RecordLabel extends AbstractDTO
      *
      * @return RecordLabel
      */
-    public function setName(string $name): RecordLabel
+    public function setName(string $name): self
     {
         $this->name = $name;
 

@@ -14,7 +14,7 @@ interface EntityInterface
     /**
      * @return EntityInterface
      */
-    public static function create(): EntityInterface;
+    public static function create(): self;
 
     /**
      * @return UuidInterface
@@ -53,5 +53,5 @@ interface EntityInterface
      *
      * @return EntityInterface
      */
-    public static function createFromDTO(DTOInterface $dto): EntityInterface;
+    public static function createFromDTO(DTOInterface $dto): self;
 }
