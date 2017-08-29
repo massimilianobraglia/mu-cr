@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MuCr\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MuCr\AppBundle\DTO\DTOInterface;
+use MuCr\AppBundle\DTO\DtoInterface;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -11,11 +11,6 @@ use Ramsey\Uuid\UuidInterface;
  */
 interface EntityInterface
 {
-    /**
-     * @return EntityInterface
-     */
-    public static function create(): self;
-
     /**
      * @return UuidInterface
      *
@@ -25,33 +20,20 @@ interface EntityInterface
     public function getId(): UuidInterface;
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      *
      * @ORM\Column(type="datetime", nullable="false")
      */
-    public function getCreatedAt(): \DateTime;
+    public function getCreatedAt(): \DateTimeInterface;
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      *
      * @ORM\Column(type="datetime", nullable="false")
      */
-    public function getUpdatedAt(): \DateTime;
+    public function getUpdatedAt(): \DateTimeInterface;
 
-    /**
-     * @return EntityInterface
-     */
-    public function updateTimestamp();
+    public function createDto(): DtoInterface;
 
-    /**
-     * @return DTOInterface
-     */
-    public function createDTO(): DTOInterface;
-
-    /**
-     * @param DTOInterface $dto
-     *
-     * @return EntityInterface
-     */
-    public static function createFromDTO(DTOInterface $dto): self;
+    public static function createFromDTO(DtoInterface $dto): self;
 }

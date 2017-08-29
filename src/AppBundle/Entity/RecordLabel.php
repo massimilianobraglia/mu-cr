@@ -1,9 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MuCr\AppBundle\Entity;
 
-use MuCr\AppBundle\DTO\DTOInterface;
-use MuCr\AppBundle\DTO\RecordLabel as DTORecordLabel;
+use AppBundle\Exception\Dto\MalformedDtoException;
+use MuCr\AppBundle\Dto\DtoInterface;
+use MuCr\AppBundle\Dto\RecordLabel as DtoRecordLabel;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@gmail.com>
@@ -20,19 +21,11 @@ class RecordLabel extends AbstractEntity
      */
     private $name;
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return RecordLabel
-     */
     public function setName(string $name): RecordLabel
     {
         $this->name = $name;
@@ -41,22 +34,26 @@ class RecordLabel extends AbstractEntity
     }
 
     /**
-     * @return DTOInterface|DTORecordLabel
+     * @return DtoInterface|DtoRecordLabel
      */
-    public function createDTO(): DTOInterface
+    public function createDto(): DtoInterface
     {
-        return DTORecordLabel::createFromEntity($this);
+        return DtoRecordLabel::createFromEntity($this);
     }
 
     /**
-     * @param DTORecordLabel|DTOInterface $dto
+     * @param DtoRecordLabel|DtoInterface $dto
      *
-     * @return Artist|EntityInterface
+     * @return EntityInterface
+     *
+     * @throws MalformedDtoException
      */
-    public static function createFromDTO(DTOInterface $dto): EntityInterface
+    public static function createFromDto(DtoInterface $dto): EntityInterface
     {
-        return static::create()
-            ->setName($dto->getName())
-        ;
+        if (! $dto->isValid()) {
+            throw new MalformedDtoException('Missing name');
+        }
+
+        return static::create($dto->name);
     }
 }

@@ -32,6 +32,7 @@
         "fazland/notifire": "^0.3.0",
         "fazland/notifire-bundle": "^0.3.0",
         "incenteev/composer-parameter-handler": "^2.0",
+        "nesbot/carbon": "^1.22",
         "ramsey/uuid-doctrine": "^1.2",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",

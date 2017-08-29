@@ -1,23 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MuCr\AppBundle\DTO;
+namespace MuCr\AppBundle\Dto;
 
 use MuCr\AppBundle\Entity\EntityInterface;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@gmail.com>
  */
-interface DTOInterface
+interface DtoInterface
 {
-    /**
-     * @param EntityInterface $entity
-     *
-     * @return DTOInterface
-     */
     public static function createFromEntity(EntityInterface $entity): self;
 
-    /**
-     * @return bool
-     */
     public function isValid(): bool;
 }

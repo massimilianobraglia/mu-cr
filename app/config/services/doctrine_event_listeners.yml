@@ -1,5 +1,5 @@
 services:
     timestampable_event_listener:
-        class: MuCr\AppBundle\EventListener\UpdateTimestampEventListener
+        class: MuCr\AppBundle\EventListener\Timestampable\UpdateTimestampEventListener
         tags:
             - { name: doctrine.event_listener, event: preUpdate }

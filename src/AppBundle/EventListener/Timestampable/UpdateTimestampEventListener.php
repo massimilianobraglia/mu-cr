@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MuCr\AppBundle\EventListener;
+namespace MuCr\AppBundle\EventListener\Timestampable;
 
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use MuCr\AppBundle\Entity\EntityInterface;
+use MuCr\AppBundle\Utils\Timestampable\TimestampableInterface;
 
 /**
  * @author Massimiliano Braglia <massimiliano.braglia@fazland.com>
@@ -17,7 +17,7 @@ class UpdateTimestampEventListener
     {
         $object = $args->getObject();
 
-        if (! $object instanceof EntityInterface) {
+        if (! $object instanceof TimestampableInterface) {
             return;
         }
 
